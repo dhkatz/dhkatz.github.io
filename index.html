@@ -39,6 +39,7 @@
     </div>
 
     <script>
+        // Returns HTML string of these repo boxes to append to DOM. To learn about attributes of repo see https://developer.github.com/v3/search/#example
         function renderRepo(repo) {
             return `
                 <a href="${repo.html_url}" target="_blank" rel="noopener">
@@ -56,9 +57,11 @@
                 </a>`
         }
 
+        // Because Github sets subdomain to your username we can extract your Github username from subdomain.
         var username = window.location.host.split('.')[0];
         document.title = username;
 
+        // Fetches data about user itself to render left side of page.
         fetch(`https://api.github.com/users/${username}`).then(response => response.json()).then(user => {
             document.getElementById('profile_img').style = `background: url(${user.avatar_url}) center;`;
             document.getElementById('username').innerHTML = `<span style="display:block;">${user.name}</span>${user.login}`;
@@ -72,6 +75,8 @@
             document.head.innerHTML += `<meta name="description" content="${user.bio}">`;
             document.title = user.name;
         });
+
+        // Fetches only non-fork repos sorted by star count.
         fetch(`https://api.github.com/search/repositories?q=user:${username} fork:false&sort=stars`).then(response => response.json()).then(repositories => {
             repositoriesDom = document.getElementById('work_section');
             if (!repositories.total_count)
@@ -80,6 +85,8 @@
                 repositoriesDom.innerHTML += renderRepo(repo);
             });
         });
+
+        // Fetches only fork repos sorted by star count.
         fetch(`https://api.github.com/search/repositories?q=user:${username} fork:only&sort=stars`).then(response => response.json()).then(forks => {
             forksDom = document.getElementById('forks_section');
             if (!forks.total_count)

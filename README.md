@@ -7,8 +7,12 @@ Gitfolio needs to install Node and I've just uninstalled it but I wanted to use 
 - Removed jQuery
 - Removed Loading Spinner
 - Removed Blog Section (It can be achieved without Node but I'm not going to write posts so I removed blog)
-- Removed Service Worker Because I Don't know I can't manage to work it as I expect :(
+- Removed Service Worker Because For Some Reason It Didn't Worked As I expected.
 - Changed Background Image To Use [Unsplash Source](https://source.unsplash.com/)
+
+### How it works
+
+It uses Github's search API to get your forked and own repos and just renders them. I'm really bad at JS but I added comments on code to explain code.
 
 <img src="https://i.imgur.com/eA6clZr.png">
 
