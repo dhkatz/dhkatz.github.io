@@ -73,12 +73,11 @@
             document.getElementById('profile_img').style = `background: url(${user.avatar_url}) center;`;
             document.getElementById('username').innerHTML = `<span style="display:block;">${user.name}</span>@${user.login}`;
             document.getElementById('userbio').innerHTML = user.bio;
-            document.getElementById('about').innerHTML = `
-            ${user.company ? '<span style="display:block;"><i class="fas fa-users"></i> ' + user.company + '</span>' : ""}
-            ${user.email ? '<span style="display:block;"><i class="fas fa-envelope"></i> ' + user.email + '</span>' : ""}
-            ${user.blog ? '<span style="display:block;"><i class="fas fa-link"></i> ' + user.blog + '</span>' : ""}
-            ${user.location ? '<span style="display:block;"><i class="fas fa-map-marker-alt"></i> ' + user.location + '</span>' : ""}
-            ${user.hireable ? '<span style="display:block;"><i class="fas fa-user-tie"></i> Available for hire</span>' : ""}`;
+            document.getElementById('about').innerHTML += user.company ? `<span style="display:block;"><i class="fas fa-users"></i> ${user.company}</span>` : "";
+            document.getElementById('about').innerHTML += user.email ? `<span style="display:block;"><i class="fas fa-envelope"></i> ${user.email}</span>` : "";
+            document.getElementById('about').innerHTML += user.blog ? `<span style="display:block;"><i class="fas fa-link"></i> ${user.blog}</span>` : "";
+            document.getElementById('about').innerHTML += user.location ? `<span style="display:block;"><i class="fas fa-map-marker-alt"></i> ${user.location}</span>` : "";
+            document.getElementById('about').innerHTML += user.hireable ? `<span style="display:block;"><i class="fas fa-user-tie"></i> Available for hire</span>` : "";
         });
 
         // Fetches only non-fork repositories sorted by star count.
