@@ -1,6 +1,6 @@
 ## Purpose of fork
 
-Gitfolio needs to install Node and I've just uninstalled it but I wanted to use gitfolio so here is my implementation of gitfolio. By using this you can just fork and publish at Github Pages and you are ready to go!
+Gitfolio needs to install Node and I've just uninstalled it but I wanted to use gitfolio so here is my implementation of gitfolio. To use this you can just fork and publish at Github Pages and you are ready to go!
 
 ### Changes
 
