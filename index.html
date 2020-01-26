@@ -18,10 +18,10 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Questrial">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css"
         integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <title>Loading...</title>
 </head>
 
 <body>
-
     <div id="profile">
         <div id="profile_img"></div>
         <div id="username"></div>
@@ -62,44 +62,49 @@
         }
 
         // Because Github sets subdomain to your username we can extract your Github username from subdomain.
-        var username = window.location.host.split('.')[0];
+        const username = window.location.host.split('.')[0];
         document.title = username;
 
         // Fetches data about user itself to render left side of page.
-        fetch(`https://api.github.com/users/${username}`).then(response => response.json()).then(user => {
-            document.title = user.name;
-            document.querySelector("meta[name='description']").setAttribute("content", user.bio);
-            document.querySelector("link[rel='shortcut icon']").setAttribute("href", user.avatar_url);
-            document.getElementById('profile_img').style = `background: url(${user.avatar_url}) center;`;
-            document.getElementById('username').innerHTML = `<span style="display:block;">${user.name}</span>@${user.login}`;
-            document.getElementById('userbio').innerHTML = user.bio;
-            document.getElementById('about').innerHTML += user.company ? `<span style="display:block;"><i class="fas fa-users"></i> ${user.company}</span>` : "";
-            document.getElementById('about').innerHTML += user.email ? `<span style="display:block;"><i class="fas fa-envelope"></i> ${user.email}</span>` : "";
-            document.getElementById('about').innerHTML += user.blog ? `<span style="display:block;"><i class="fas fa-link"></i> ${user.blog}</span>` : "";
-            document.getElementById('about').innerHTML += user.location ? `<span style="display:block;"><i class="fas fa-map-marker-alt"></i> ${user.location}</span>` : "";
-            document.getElementById('about').innerHTML += user.hireable ? `<span style="display:block;"><i class="fas fa-user-tie"></i> Available for hire</span>` : "";
+        fetch(`https://api.github.com/users/${username}`)
+            .then(response => response.json())
+            .then(user => {
+                document.title = user.name;
+                document.querySelector("meta[name='description']").setAttribute("content", user.bio);
+                document.querySelector("link[rel='shortcut icon']").setAttribute("href", user.avatar_url);
+                document.getElementById('profile_img').style = `background: url(${user.avatar_url}) center;`;
+                document.getElementById('username').innerHTML = `<span style="display:block;">${user.name}</span>@${user.login}`;
+                document.getElementById('userbio').innerHTML = user.bio;
+                document.getElementById('about').innerHTML += user.company ? `<span style="display:block;"><i class="fas fa-users"></i> ${user.company}</span>` : "";
+                document.getElementById('about').innerHTML += user.email ? `<span style="display:block;"><i class="fas fa-envelope"></i> ${user.email}</span>` : "";
+                document.getElementById('about').innerHTML += user.blog ? `<span style="display:block;"><i class="fas fa-link"></i> ${user.blog}</span>` : "";
+                document.getElementById('about').innerHTML += user.location ? `<span style="display:block;"><i class="fas fa-map-marker-alt"></i> ${user.location}</span>` : "";
+                document.getElementById('about').innerHTML += user.hireable ? `<span style="display:block;"><i class="fas fa-user-tie"></i> Available for hire</span>` : "";
         });
 
         // Fetches only non-fork repositories sorted by star count.
-        fetch(`https://api.github.com/search/repositories?q=user:${username} fork:false&sort=stars`).then(response => response.json()).then(repositories => {
-            repositoriesDom = document.getElementById('work_section');
-            if (!repositories.total_count)
-                repositoriesDom.parentElement.parentElement.removeChild(repositoriesDom.parentElement);
-            repositories.items.forEach(repo => {
-                repositoriesDom.innerHTML += renderRepo(repo);
+        fetch(`https://api.github.com/search/repositories?q=user:${username} fork:false&sort=stars`)
+            .then(response => response.json())
+            .then(repositories => {
+                const repositoriesDom = document.getElementById('work_section');
+                if (!repositories.total_count)
+                    repositoriesDom.parentElement.parentElement.removeChild(repositoriesDom.parentElement);
+                repositories.items.forEach(repo => {
+                    repositoriesDom.innerHTML += renderRepo(repo);
+                });
             });
-        });
 
         // Fetches only fork repositories sorted by star count.
-        fetch(`https://api.github.com/search/repositories?q=user:${username} fork:only&sort=stars`).then(response => response.json()).then(forks => {
-            forksDom = document.getElementById('forks_section');
-            if (!forks.total_count)
-                forksDom.parentElement.parentElement.removeChild(forksDom.parentElement);
-            forks.items.forEach(fork => {
-                forksDom.innerHTML += renderRepo(fork);
+        fetch(`https://api.github.com/search/repositories?q=user:${username} fork:only&sort=stars`)
+            .then(response => response.json())
+            .then(forks => {
+                const forksDom = document.getElementById('forks_section');
+                if (!forks.total_count)
+                    forksDom.parentElement.parentElement.removeChild(forksDom.parentElement);
+                forks.items.forEach(fork => {
+                    forksDom.innerHTML += renderRepo(fork);
+                });
             });
-        });
     </script>
 </body>
-
 </html>

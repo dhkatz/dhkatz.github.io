@@ -2,8 +2,8 @@
 @import url("https://fonts.googleapis.com/css?family=Questrial");
 
 body {
-  margin: 0%;
-  padding: 0%;
+  margin: 0;
+  padding: 0;
   width: 100vw;
   background: var(--bg-color);
   color: var(--text-color);
@@ -65,10 +65,9 @@ body {
 
 #display {
   width: 64vw;
-  padding: 4vh 3vw;
   height: 92vh;
   display: inline-block;
-  padding-left: 33vw;
+  padding: 4vh 3vw 4vh 33vw;
 }
 
 #display h1 {
@@ -111,16 +110,14 @@ body {
 
 #blog-display {
   width: 60vw;
-  margin: 0px 20vw;
   text-align: left;
-  margin-top: 3vh;
+  margin: 3vh 20vw 0;
   z-index: 1;
 }
 
 #profile_blog {
   width: 60vw;
-  margin: 0px 20vw;
-  margin-top: 10vh;
+  margin: 10vh 20vw 0;
   text-align: left;
   z-index: 1;
 }
@@ -148,7 +145,7 @@ body {
 }
 
 #blog-display {
-  padding: 1vh 0px;
+  padding: 1vh 0;
   font-family: "Questrial", sans-serif;
 }
 
@@ -156,7 +153,7 @@ body {
   font-size: 17px;
   line-height: 25px;
   word-spacing: 1.2px;
-  margin: 5vh 0px;
+  margin: 5vh 0;
 }
 
 #blog p span {
@@ -167,15 +164,15 @@ body {
 
 #blog img {
   width: 100%;
-  margin: 2vh 0px;
+  margin: 2vh 0;
   border-radius: 5px;
-  border: 1px solid rgb(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.08);
 }
 
 #header {
   width: 63vw;
   text-align: right;
-  padding: 3vh 0px;
+  padding: 3vh 0;
   position: absolute;
 }
 
@@ -201,7 +198,7 @@ body {
 
 #footer {
   width: 100%;
-  padding: 8vh 0px;
+  padding: 8vh 0;
   text-align: center;
 }
 
@@ -221,7 +218,7 @@ body {
 
 #profile div {
   font-weight: bold;
-  margin: 1.5vh 0px;
+  margin: 1.5vh 0;
 }
 
 #username {
@@ -245,7 +242,7 @@ body {
 }
 
 #about span {
-  margin: 1vh 0px;
+  margin: 1vh 0;
   display: block;
 }
 
@@ -254,13 +251,13 @@ body {
 }
 
 #work {
-  margin: 2vh 0px;
-  padding: 4vh 0px !important;
+  margin: 2vh 0;
+  padding: 4vh 0 !important;
 }
 
 #forks {
-  margin: 2vh 0px;
-  padding: 4vh 0px !important;
+  margin: 2vh 0;
+  padding: 4vh 0 !important;
 }
 
 .projects {
@@ -273,37 +270,37 @@ body {
   display: inline-block;
   border-radius: 5px;
   color: var(--text-color);
-  border: 1px solid rgb(0, 0, 0, 0.08);
-  box-shadow: 0px 0px 0px rgb(0, 0, 0, 0);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0);
   transition: 0.4s ease-in-out;
-  margin: 2vh 0px;
+  margin: 2vh 0;
   transform: scale(1);
 }
 
 .projects section:hover {
   cursor: pointer;
-  border: 1px solid rgb(0, 0, 0, 0);
-  box-shadow: 0px 15px 35px rgb(0, 0, 0, 0.06);
+  border: 1px solid rgba(0, 0, 0, 0);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.06);
   transform: scale(1.03);
 }
 
 .section_title {
   font-size: 24px;
   font-weight: bold;
-  margin: 1vh 0px;
+  margin: 1vh 0;
   word-wrap: break-word;
 }
 
 .about_section {
   font-size: 18px;
   font-family: "Questrial", sans-serif;
-  margin: 2vh 0px;
+  margin: 2vh 0;
   font-weight: bold;
   word-wrap: break-word;
 }
 
 .bottom_section {
-  margin: 1vh 0px;
+  margin: 1vh 0;
   font-size: 14px;
   word-wrap: break-word;
 }
@@ -318,8 +315,8 @@ body {
 }
 
 #blog_section {
-  margin: 2vh 0px;
-  padding: 2vh 0px !important;
+  margin: 2vh 0;
+  padding: 2vh 0 !important;
 }
 
 #blogs {
@@ -331,17 +328,17 @@ body {
   display: inline-block;
   border-radius: 5px;
   color: var(--text-color);
-  border: 1px solid rgb(0, 0, 0, 0.04);
-  box-shadow: 0px 0px 0px rgb(0, 0, 0, 0);
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0);
   transition: 0.4s ease-in-out;
   transform: scale(1);
-  padding: 0px;
-  margin: 2vh 0px;
+  padding: 0;
+  margin: 2vh 0;
 }
 
 #blogs section img {
   width: 100%;
-  border-radius: 5px 5px 0px 0px;
+  border-radius: 5px 5px 0 0;
 }
 
 .blog_container {
@@ -350,8 +347,8 @@ body {
 
 #blogs section:hover {
   cursor: pointer;
-  border: 1px solid rgb(0, 0, 0, 0);
-  box-shadow: 0px 15px 35px rgb(0, 0, 0, 0.06);
+  border: 1px solid rgba(0, 0, 0, 0);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.06);
   transform: scale(1.03);
 }
 
@@ -381,15 +378,14 @@ body {
     padding: 4vh 5vw;
     height: auto;
     display: inline-block;
-    padding-left: 5vw;
   }
   #profile_img {
     width: 120px;
     height: 120px;
-    margin: 0px auto !important;
+    margin: 0 auto !important;
   }
   #work {
-    margin: 0px;
+    margin: 0;
   }
   .projects {
     columns: 1;
@@ -404,19 +400,17 @@ body {
     width: 98%;
   }
   #blog_section {
-    margin: 0px;
+    margin: 0;
   }
   #blog-display {
     width: 90vw;
-    margin: 0px 5vw;
     text-align: left;
-    margin-top: 0vh;
+    margin: 0 5vw 0;
     z-index: 1;
   }
   #profile_blog {
     width: 90vw;
-    margin: 0px 5vw;
-    margin-top: 10vh;
+    margin: 10vh 5vw 0;
     text-align: left;
     z-index: 1;
   }
@@ -428,10 +422,10 @@ body {
     top: 5vh;
   }
   #blog img {
-    margin: 1vh 0px !important;
+    margin: 1vh 0 !important;
   }
   #blog p {
-    margin: 2vh 0px;
+    margin: 2vh 0;
   }
 }
 
@@ -452,9 +446,9 @@ body {
   --background-image: linear-gradient(
       90deg,
       rgba(10, 10, 10, 0.6),
-      rgb(10, 10, 10, 1)
+      rgba(10, 10, 10, 1)
     ),
-    url("https://source.unsplash.com/y54gnzC86lw");
+    url("");
   --background-background: linear-gradient(
       0deg,
       rgba(10, 10, 10, 1),
@@ -484,7 +478,7 @@ body {
     --background-image: linear-gradient(
         0deg,
         rgba(10, 10, 10, 1),
-        rgb(10, 10, 10, 0)
+        rgba(10, 10, 10, 0)
       ),
       url("") !important;
   }
